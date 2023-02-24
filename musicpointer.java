@@ -38,26 +38,19 @@ public class musicpointer {
         {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                    String l = "";
                     for (int i = 0; i < 10; i++) {
                         int t = getrn(1, 9);
                         String n = Integer.toString(t) + " - " + translate(t);
                         System.out.println(n);
-                        tf.setText(n);
+                        l = l + "\n" + n;
+                        tf.setText(l);
                     }
                     System.out.println("-------------------------------------------------------------------");
                 }
             }
 
         });
-        /*
-         * bt.addActionListener(new ActionListener() {
-         * public void actionPerformed(ActionEvent e) {
-         * String n = Integer.toString(getrn(1, 7));
-         * System.out.println(n);
-         * tf.setText(n);
-         * }
-         * });
-         */
     }
 
     public String translate(int n) {
