@@ -12,6 +12,7 @@ public class musicpointer {
         madeFrame();
     }
 
+    // click on login in and then use key "space" to generate
     public void madeFrame() {
         f = new Frame("FRAME");
 
@@ -80,7 +81,7 @@ public class musicpointer {
             result = "la";
         }
         if (n == 7) {
-            result = "si";
+            result = "xi";
         }
         if (n == 8) {
             result = "do+";
