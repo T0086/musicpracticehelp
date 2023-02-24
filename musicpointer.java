@@ -6,7 +6,8 @@ import java.util.Random;
 public class musicpointer {
     private Frame f;
     private Button bt;
-    private TextField tf;
+    private TextArea tf;
+    private TextField tf1;
 
     musicpointer() {
         madeFrame();
@@ -15,13 +16,16 @@ public class musicpointer {
     // click on login in and then use key "space" to generate
     public void madeFrame() {
         f = new Frame("FRAME");
-
         f.setBounds(300, 300, 600, 500);// 对框架的位置和大小进行设置
         f.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));// 设计布局
         bt = new Button("login");
-        tf = new TextField(77);
+        tf = new TextArea();
+        tf.setBounds(200, 300, 200, 200);
+        tf1 = new TextField("SPACE for tone / ENTER for chord", 60);
+        tf1.setEditable(false);
         f.add(tf);
         f.add(bt);
+        f.add(tf1);
         myEvent();
 
         f.setVisible(true);
@@ -43,7 +47,19 @@ public class musicpointer {
                         int t = getrn(1, 9);
                         String n = Integer.toString(t) + " - " + translate(t);
                         System.out.println(n);
-                        l = l + "\n" + n;
+                        l = l + n + "\n";
+                        tf.setText(l);
+                    }
+                    System.out.println("-------------------------------------------------------------------");
+                }
+                // --------------------------------------------------------------------------------------------------------------------
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    String l = "";
+                    for (int i = 0; i < 10; i++) {
+                        int t = getrn(1, 9);
+                        String n = chord(t);
+                        System.out.println(n);
+                        l = l + n + "\n";
                         tf.setText(l);
                     }
                     System.out.println("-------------------------------------------------------------------");
@@ -51,6 +67,35 @@ public class musicpointer {
             }
 
         });
+    }
+
+    public String chord(int n) {
+        String result = null;
+        if (n == 1) {
+            result = "C";
+        }
+        if (n == 2) {
+            result = "A";
+        }
+        if (n == 3) {
+            result = "G";
+        }
+        if (n == 4) {
+            result = "E";
+        }
+        if (n == 5) {
+            result = "D";
+        }
+        if (n == 6) {
+            result = "Am";
+        }
+        if (n == 7) {
+            result = "Em";
+        }
+        if (n == 8) {
+            result = "Dm";
+        }
+        return result;
     }
 
     public String translate(int n) {
