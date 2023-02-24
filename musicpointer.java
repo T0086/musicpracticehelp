@@ -18,11 +18,19 @@ public class musicpointer {
         f = new Frame("FRAME");
         f.setBounds(300, 300, 600, 500);// 对框架的位置和大小进行设置
         f.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));// 设计布局
-        bt = new Button("login");
+        f.setBackground(Color.BLACK);// background
+
+        bt = new Button("Click here once");
+        // text area
         tf = new TextArea();
         tf.setBounds(200, 300, 200, 200);
-        tf1 = new TextField("SPACE for tone / ENTER for chord", 60);
+        Font font = new Font("Microsoft YaHei", Font.BOLD, 17);
+        tf.setFont(font);
+        tf.setForeground(Color.black);
+        // text field (tips)
+        tf1 = new TextField("SPACE for tone / ENTER for chord", 40);
         tf1.setEditable(false);
+        // frame
         f.add(tf);
         f.add(bt);
         f.add(tf1);
@@ -56,7 +64,7 @@ public class musicpointer {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     String l = "";
                     for (int i = 0; i < 10; i++) {
-                        int t = getrn(1, 9);
+                        int t = getrn(1, 10);
                         String n = chord(t);
                         System.out.println(n);
                         l = l + n + "\n";
@@ -72,28 +80,31 @@ public class musicpointer {
     public String chord(int n) {
         String result = null;
         if (n == 1) {
-            result = "C";
+            result = "C  -- (21)(42)(53)";
         }
         if (n == 2) {
-            result = "A";
+            result = "A  -- (22)(32)(42)";
         }
         if (n == 3) {
-            result = "G";
+            result = "G  -- (52)(63)(13)";
         }
         if (n == 4) {
-            result = "E";
+            result = "E  -- (31)(52)(42)";
         }
         if (n == 5) {
-            result = "D";
+            result = "D  -- (32)(23)(12)";
         }
         if (n == 6) {
-            result = "Am";
+            result = "Am -- (21)(42)(32)";
         }
         if (n == 7) {
-            result = "Em";
+            result = "Em -- (52)(42)";
         }
         if (n == 8) {
-            result = "Dm";
+            result = "Dm -- (32)(23)";
+        }
+        if (n == 9) {
+            result = "F  -- (——>1)(32)(43)(53)";
         }
         return result;
     }
@@ -101,28 +112,28 @@ public class musicpointer {
     public String translate(int n) {
         String result = null;
         if (n == 1) {
-            result = "do";
+            result = "do  -- 5 3";
         }
         if (n == 2) {
-            result = "ri";
+            result = "ri  -- 4 0";
         }
         if (n == 3) {
-            result = "mi";
+            result = "mi  -- 4 2";
         }
         if (n == 4) {
-            result = "fa";
+            result = "fa  -- 4 3";
         }
         if (n == 5) {
-            result = "so";
+            result = "so  -- 3 0";
         }
         if (n == 6) {
-            result = "la";
+            result = "la  -- 3 2";
         }
         if (n == 7) {
-            result = "xi";
+            result = "xi  -- 2 0";
         }
         if (n == 8) {
-            result = "do+";
+            result = "do+ -- 2 1";
         }
         return result;
     }
