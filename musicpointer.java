@@ -104,7 +104,7 @@ public class musicpointer {
             result = "Dm -- (32)(23)";
         }
         if (n == 9) {
-            result = "F  -- (——>1)(32)(43)(53)";
+            result = "F  -- (-->1)(32)(43)(53)";
         }
         return result;
     }
